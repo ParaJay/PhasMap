@@ -1,0 +1,115 @@
+@font-face {
+	font-family: "October Crow";
+	src: url("./OctoberCrow.ttf");
+}
+
+#ghostName {
+    text-align: center;
+    font-family: "October Crow";
+}
+
+#text {
+    margin: 0px 12px;
+    resize: none;
+}
+
+.sub-wrapper {
+    width: 70%;
+}
+
+.wrapper, .sub-sub-wrapper {
+    display: flex;
+}
+
+.btns-left, .btns-right {
+    width: 10%;
+}
+
+.evidence {
+    text-align: left;
+}
+
+#sliderLabel {
+    text-align: center;
+}
+
+.jleft, .jright, .jcenter {
+    padding: 0px 65px;
+    /* position: relative; */
+}
+
+.btns-left, .btns-right, .jleft, .jright, .jcenter {
+    display: flex;
+    flex-direction: column;
+}
+
+* {
+    color: rgb(202, 201, 201);
+}
+
+textarea, body {
+    background-color: rgb(60, 63, 65);
+    border-color: rgb(94, 97, 98);
+}
+
+input {
+    accent-color: rgb(48, 50, 52);
+}
+
+#ghostName {
+    font-size: 30px;
+}
+
+box a, .navbar a {
+    text-decoration: none;
+}
+
+button, label, box {
+    margin: 6px 6px;
+}
+
+input {
+    margin: 8.75px 6px;
+}
+
+button, box {
+    border-radius: 12%;
+    background-color: rgb(78, 80, 82);
+    border-color: rgb(94, 97, 98);
+    padding: 5px 4px;
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+ }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 30px;
+    text-align: center;
+    background-color: rgb(78, 80, 82);
+}
+
+.dropdown-content a { padding: 5px 4px; }
+
+.dropdown-content a:hover, .navbar button:hover {background-color: darkcyan;}
+
+.dropdown:hover .dropdown-content {
+   display: flex;
+   flex-direction: column;
+}
+
+.img-wrapper {
+    display: grid;
+    height: 100%;
+}
+
+#canvas {
+    max-width: 100%;
+    max-height: 80vh;
+    margin: auto;
+}

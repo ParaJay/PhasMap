@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Journal</title>
+		<link rel="stylesheet" href="./styles/main.css">
+	</head>
+
+	<body>
+        <nav id="nav" class="navbar">
+            <div class="dropdown">
+                <box class="dropbtn">
+                    View Map
+                </box>
+                
+                <div class="dropdown-content">
+                    <a href="./index.html?map=bleasedale">Bleasedale</a>
+                    <a href="./index.html?map=brownstone%20high%20school">Brownstone High School</a>
+                    <a href="./index.html?map=camp%20woodwind">Camp Woodwind</a>
+                    <a href="./index.html?map=edgefield">Edgefield</a>
+                    <a href="./index.html?map=grafton">Grafton</a>
+                    <a href="./index.html?map=maple%20lodge%20campsite">Maple Lodge Campsite</a>
+                    <a href="./index.html?map=prison">Prison</a>
+                    <a href="./index.html?map=ridgeview">Ridgeview</a>
+                    <a href="./index.html?map=sunny%20meadows">Sunny Meadows</a>
+                    <a href="./index.html?map=sunny%20meadows%20restricted">Sunny Meadows Restricted</a>
+                    <a href="./index.html?map=tanglewood">Tanglewood</a>
+                    <a href="./index.html?map=willow">Willow</a>
+                </div>
+            </div>
+
+            <box><a href="./ghosts.html">Ghosts</a></box>
+            <box><a href="./index.html">Maps</a></box>
+            <box><a href="./journal.html">Journal</a></box>
+        </nav>
+
+        <br><br>
+        
+        <div class="wrapper">
+            <div class="sub-wrapper">
+                <div class="sub-sub-wrapper">
+                    <div class="jleft"></div>
+                    <div class="jcenter"></div>
+                    <div class="jright"></div>
+                </div>
+            </div>
+
+            <div class="btns-left">
+                <br>
+                <input type="checkbox" id="orbs" class="evidence" value="Ghost Orbs">
+                <input type="checkbox" id="fingerprints" class="evidence" value="Fingerprints">
+                <input type="checkbox" id="dots" class="evidence" value="D.O.T.S">
+                <input type="checkbox" id="freezing" class="evidence" value="Freezing">
+                <input type="checkbox" id="spiritBox" class="evidence" value="Spirit Box">
+                <input type="checkbox" id="emf" class="evidence" value="EMF 5">
+                <input type="checkbox" id="writing" class="evidence" value="Ghost Writing">
+                <br>      
+                <label for="slider" id="sliderLabel">Sanity: 0%</label>
+                                
+            </div>
+            
+            <div class="btns-right">
+                <br>
+                <label for="orbs">Ghost Orbs</label>
+                <label for="fingerprints">Fingerprints</label>
+                <label for="dots">D.O.T.S</label>
+                <label for="freezing">Freezing</label>
+                <label for="spiritBox">Spirit Box</label>
+                <label for="emf">EMF 5</label>
+                <label for="writing">Ghost Writing</label>
+                <br>
+                <input id="slider" type="range" min="0" max="100" value="0">
+                <br>
+                <br>
+                <button id="goto">Goto</button>
+            </div>           
+        </div>
+        
+
+        <script src="./journal/script.js" type="module"></script>
+	</body>
+
+	<footer>
+		
+	</footer>
+</html>
