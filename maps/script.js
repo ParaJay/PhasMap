@@ -4,8 +4,8 @@ const image = document.createElement("img");
 
 var scale, x, y, clickX, clickY, clicking, xoffset, yoffset;
 
-// canvas.width = screen.availWidth * 0.8;
-// canvas.height = screen.availHeight * 0.9;
+canvas.width = screen.availWidth * 0.8;
+canvas.height = screen.availHeight * 0.9;
 
 const iw = canvas.width;
 const ih = canvas.height;
