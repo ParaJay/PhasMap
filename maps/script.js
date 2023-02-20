@@ -21,8 +21,6 @@ const maps = [
 const keys = {};
 
 function init() {
-    screen.orientation.lock("landscape");
-
     let def = "grafton";
 
     let query = window.location.search;
