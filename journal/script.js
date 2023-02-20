@@ -29,10 +29,7 @@ async function init() {
         }
 
         if(e.key == " ") {
-            if(selected) {
-                striked[selected] = !striked[selected];
-                updateLabels();
-            }
+            strike();
         }
 
         //TODO: arrow keys
@@ -348,6 +345,14 @@ function goto() {
     window.location.href = url;
 }
 
+function strike() {
+    if(selected) {
+        striked[selected] = !striked[selected];
+        updateLabels();
+    }
+}
+
 document.getElementById("goto").onclick = goto;
+document.getElementById("strike").onclick = strike;
 
 init();
