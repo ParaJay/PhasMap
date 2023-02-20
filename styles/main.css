@@ -3,9 +3,10 @@
 	src: url("./OctoberCrow.ttf");
 }
 
-#ghostName {
+#infoHeader {
     text-align: center;
     font-family: "October Crow";
+    font-size: 30px;
 }
 
 #text {
@@ -54,10 +55,6 @@ textarea, body {
 
 input {
     accent-color: rgb(48, 50, 52);
-}
-
-#ghostName {
-    font-size: 30px;
 }
 
 box a, .navbar a {

@@ -1,5 +1,5 @@
 const text = document.getElementById("text");
-const itemName = document.getElementById("ghostName");
+const itemName = document.getElementById("infoHeader");
 const buttons = document.getElementsByTagName("button");
 
 const cursedItems = [

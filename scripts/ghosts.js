@@ -1,5 +1,5 @@
 const text = document.getElementById("text");
-const ghostName = document.getElementById("ghostName");
+const ghostName = document.getElementById("infoHeader");
 const buttons = document.getElementsByTagName("button");
 
 const ghosts = [
