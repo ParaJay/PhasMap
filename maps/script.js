@@ -21,9 +21,7 @@ const maps = [
 const keys = {};
 
 function init() {
-    // if(canvas.height > (canvas.width * 2)) {
-    //     canvas.height = canvas.height;
-    // }
+    screen.orientation.lock("landscape");
 
     let def = "grafton";
 
