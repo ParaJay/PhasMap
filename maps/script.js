@@ -4,7 +4,7 @@ const image = document.createElement("img");
 
 var scale, x, y, clickX, clickY, clicking, xoffset, yoffset;
 
-canvas.width = screen.availWidth * 0.8;
+// canvas.width = screen.availWidth * 0.8;
 
 const iw = canvas.width;
 const ih = canvas.height;
@@ -21,9 +21,9 @@ const maps = [
 const keys = {};
 
 function init() {
-    if(canvas.height > (canvas.width * 2)) {
-        canvas.height = canvas.height;
-    }
+    // if(canvas.height > (canvas.width * 2)) {
+    //     canvas.height = canvas.height;
+    // }
 
     let def = "grafton";
 
@@ -63,6 +63,7 @@ function select(map) {
     clicking = false;
 
     image.src = "./maps/res/" + map + ".png";
+
     image.onload = () => {
         context.drawImage(image, 0, 0, iw, ih);
     }  
