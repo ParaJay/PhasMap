@@ -139,7 +139,7 @@ export function handleKeyDown(e, array, ret=false) {
     let am = kval[key];
 
     if(am) {
-        s = set(array, am, ret);
+        s = getNext(array, am, ret);
     } else {
         s = handleKey(key, ret);
     }
@@ -179,7 +179,7 @@ export function handleKey(key, ret=false) {
     // select(cursedItems[index]);
 }
 
-export function set(array, am, ret=false) {
+export function getNext(array, am, ret=false) {
     let index = array.indexOf(selected);
 
     for(let i = 0; i < Math.abs(am); i++) {
