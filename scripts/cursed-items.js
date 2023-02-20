@@ -20,7 +20,7 @@ async function init() {
     };
 
     cursedItems.forEach(item => {
-        let split = item.split("_");
+        let split = item.split(" ");
         let val = [];
         split.forEach(e => {
             val.push(e.charAt(0).toUpperCase());
