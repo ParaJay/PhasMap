@@ -97,7 +97,7 @@ export function createButton(text) {
 }
 
 export function readInfo(filename, dir) {
-    filename = filename.toLowerCase().replace(" ", "");
+    filename = filename.toLowerCase().replaceAll(" ", "");
 
     return new Promise((resolve) => {
         var request = new XMLHttpRequest();
