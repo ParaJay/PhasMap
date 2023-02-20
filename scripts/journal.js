@@ -5,6 +5,10 @@ const labels = document.getElementsByTagName("label");
 const slider = document.getElementById("slider");
 const sliderLabel = document.getElementById("sliderLabel");
 
+//TODO: arrow keys
+//TODO: select by charKey
+//TODO: auto exclude when evidence unavailable
+
 const ghosts = [
     "Banshee", "Demon", "Deogen", "Goryo", "Hantu", "Jinn", "Mare", "Moroi", "Myling",
     "Obake", "Oni", "Onryo", "Phantom", "Poltergeist", "Raiju", "Revenant", "Shade",
@@ -31,9 +35,6 @@ async function init() {
         if(e.key == " ") {
             strike();
         }
-
-        //TODO: arrow keys
-        //TODO: select by charKey
     }
 
     window.onkeydown = (e) => {
@@ -349,7 +350,37 @@ function strike() {
     }
 }
 
+function reset() {
+    for(let i = 0; i < checks.length; i++) {
+        checks[i].checked = false;
+    }
+
+    selected = undefined;
+
+    Object.keys(striked).forEach(e => {
+        striked[e] = false;
+    });
+
+    Object.keys(selections).forEach(e => {
+        selections[e] = false;
+    });
+
+    Object.keys(exclusions).forEach(e => {
+        exclusions[e] = false;
+    });
+
+    for(let i = 0; i < labels.length; i++) {
+        labels[i].textContent = labels[i].textContent.replace(" (NOT)", "");
+    }
+
+    slider.value = 0;
+
+    updateLabels();
+    update();
+}
+
 document.getElementById("goto").onclick = goto;
 document.getElementById("strike").onclick = strike;
+document.getElementById("reset").onclick = reset;
 
 init();
