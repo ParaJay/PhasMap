@@ -111,6 +111,5 @@ button, box {
 #canvas {
     width: 80vh;
     max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
 }

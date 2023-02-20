@@ -82,7 +82,7 @@ function readInfo(ghost) {
 
     return new Promise((resolve) => {
         var request = new XMLHttpRequest();
-        request.open('GET', `./ghosts/res/${ghost}.txt`, true);
+        request.open('GET', `./res/ghosts/${ghost}.txt`, true);
         request.send();
         request.onreadystatechange = () => {
             if (request.readyState === 4 && request.status === 200) {

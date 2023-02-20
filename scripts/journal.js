@@ -79,8 +79,6 @@ async function init() {
         });
     };
 
-    console.log(sanity);
-
     for(let i = 0; i < labels.length; i++) {
         labelMap[labels[i].htmlFor] = labels[i];
     }
@@ -303,10 +301,9 @@ function display() {
             }
         } else {
             if(x == 0) {
-                console.log(30 - highest);
                 let cl = ((30 - highest) / 2) - 1;
                 let cl2 = cl % 2 == 0 ? cl : cl - 1;
-                console.log(cl + cl2);
+                
                 left.appendChild(p(cl));
                 right.appendChild(p(cl2));
                 
@@ -323,7 +320,7 @@ function readInfo(ghost) {
 
     return new Promise((resolve) => {
         var request = new XMLHttpRequest();
-        request.open('GET', `./ghosts/res/${ghost}.txt`, true);
+        request.open('GET', `./res/ghosts/${ghost}.txt`, true);
         request.send();
         request.onreadystatechange = () => {
             if (request.readyState === 4 && request.status === 200) {

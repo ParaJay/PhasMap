@@ -58,7 +58,7 @@ function select(map) {
     yoffset = 0;
     clicking = false;
 
-    image.src = "./maps/res/" + map + ".png";
+    image.src = "./res/maps/" + map + ".png";
 
     image.onload = () => {
         context.drawImage(image, 0, 0, iw, ih);
