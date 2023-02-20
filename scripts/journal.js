@@ -1,3 +1,5 @@
+import { readInfo } from "./utils.js";
+
 const text = document.getElementById("text");
 const ghostName = document.getElementById("ghostName");
 const checks = document.getElementsByClassName("evidence");
@@ -49,7 +51,7 @@ async function init() {
     }
 
     for(let i = 0; i < ghosts.length; i++) {
-        await readInfo(ghosts[i]).then(e => {
+        await readInfo(ghosts[i], "ghosts").then(e => {
             let lines = e.split("\n");
 
             for(let j = 0; j < lines.length; j++) {
@@ -316,25 +318,6 @@ function display() {
     }
 }
 
-function readInfo(ghost) {
-    ghost = ghost.toLowerCase().replace(" ", "");
-
-    return new Promise((resolve) => {
-        var request = new XMLHttpRequest();
-        request.open('GET', `./res/ghosts/${ghost}.txt`, true);
-        request.send();
-        request.onreadystatechange = () => {
-            if (request.readyState === 4 && request.status === 200) {
-                var type = request.getResponseHeader('Content-Type');
-
-                if (type.indexOf("text") !== 1) {
-                    resolve(request.responseText);
-                }
-            }
-        }
-    });   
-}
-
 function goto() {
     if(!selected) return;
 
@@ -350,6 +333,10 @@ function strike() {
     }
 }
 
+function falsify(dict) {
+    Object.keys(dict).forEach(e => dict[e] = false);
+}
+
 function reset() {
     for(let i = 0; i < checks.length; i++) {
         checks[i].checked = false;
@@ -357,17 +344,9 @@ function reset() {
 
     selected = undefined;
 
-    Object.keys(striked).forEach(e => {
-        striked[e] = false;
-    });
-
-    Object.keys(selections).forEach(e => {
-        selections[e] = false;
-    });
-
-    Object.keys(exclusions).forEach(e => {
-        exclusions[e] = false;
-    });
+    falsify(striked);
+    falsify(selections);
+    falsify(exclusions);
 
     for(let i = 0; i < labels.length; i++) {
         labels[i].textContent = labels[i].textContent.replace(" (NOT)", "");

@@ -1,3 +1,5 @@
+import { handleKeyDown, set, initParams, def, initKeys, initKeyValues, setSelected, selected } from "./utils.js";
+
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
 const image = document.createElement("img");
@@ -9,39 +11,15 @@ var scale, x, y, clickX, clickY, clicking, xoffset, yoffset;
 const iw = canvas.width;
 const ih = canvas.height;
 
-var selected;
-
-const kval = {ArrowUp:-1, ArrowDown:1, ArrowLeft: -1, ArrowRight: 1};
-
 const maps = [
     "bleasedale", "brownstone_high_school", "camp_woodwind", "edgefield", "grafton", "maple_lodge_campsite", "prison", 
     "ridgeview", "sunny_meadows", "sunny_meadows_restricted", "tanglewood", "willow"
 ]
 
-const keys = {};
-
 function init() {
-    let def = "grafton";
-
-    let query = window.location.search;
-
-    if(query) {
-        let params = new URLSearchParams(query);
-
-        let map = params.get("map");
-
-        if(map) def = map;
-    }
-
-    maps.forEach(map => {
-        let split = map.split("_");
-        let val = [];
-        split.forEach(e => {
-            val.push(e.charAt(0).toUpperCase());
-        });
-
-        keys[map] = val;
-    });
+    initKeyValues(1);
+    initParams("map", "grafton");
+    initKeys(maps);
 
     select(def);
 }
@@ -49,7 +27,7 @@ function init() {
 function select(map) {
     map = map.toLowerCase().replaceAll(" ", "_");
 
-    selected = map;
+    setSelected(map);
 
     scale = 1;
     x = 0;
@@ -65,72 +43,27 @@ function select(map) {
     }  
 }
 
-function set(am) {
-    let index = maps.indexOf(selected);
-
-    for(let i = 0; i < Math.abs(am); i++) {
-        let ii = am < 0 ? -1 : 1;
-
-        index += ii;
-
-        if(index == maps.length) index = 0;
-
-        if(index < 0) index = maps.length - 1;
-    }
-
-    select(maps[index]);
-}
-
 function draw() {
     context.fillStyle = "rgb(60, 63, 65)";
     context.fillRect(0, 0, canvas.width, canvas.height);
     context.drawImage(image, xoffset, yoffset, iw * scale, ih * scale);
 }
 
-function getFromKey(key) {
-    let res = [];
-    let okeys = Object.keys(keys);
-
-    for(let i = 0; i < okeys.length; i++) {
-        let okey = okeys[i];
-        let val = keys[okey];
-
-        if(val.includes(key)) {
-            res.push(okey);
-        }
-    }
-
-    return res;
-}
-
-function handleKey(key) {
-    if(key.length != 1) return;
-    if(!key.match("[a-zA-Z]")) return;
-
-    let maps = getFromKey(key.toUpperCase());
-
-    if(maps.length == 0) return;
-
-    let index = maps.indexOf(selected) + 1;
-
-    if(index == maps.length) index = 0;
-    
-    select(maps[index]);
-}
-
 window.onload = init;
 
-document.getElementById("next").onclick = () => set(1);
-document.getElementById("previous").onclick = () => set(-1);
+function change(am) {
+    let s = set(maps, am, true);
+
+    if(s) select(s);
+}
+
+document.getElementById("next").onclick = () => change(1);
+document.getElementById("previous").onclick = () => change(-1);
 
 window.onkeydown = (e) => {
-    let am = kval[e.key];
+    let s = handleKeyDown(e, maps, true);
 
-    if(am) {
-        set(am);
-    } else {
-        handleKey(e.key);
-    }
+    if(s) select(s);
 }
 
 window.onmousemove = (e) => {
@@ -162,13 +95,9 @@ window.onmousedown = (e) => {
     let x = e.x;
     let y = e.y;
 
-    if(x < canvas.offsetLeft || x > canvas.offsetLeft + (xoffset + (iw * scale))) {
-        return;
-    }
+    if(x < canvas.offsetLeft || x > canvas.offsetLeft + (xoffset + (iw * scale))) return;
 
-    if(y < canvas.offsetTop || y > canvas.offsetTop + yoffset + (ih * scale)) {
-        return;
-    }
+    if(y < canvas.offsetTop || y > canvas.offsetTop + yoffset + (ih * scale)) return;
 
     clicking = true;
     clickX = x;
