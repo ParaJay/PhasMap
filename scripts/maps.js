@@ -1,4 +1,4 @@
-import { handleKeyDown, set, initParams, def, initKeys, initKeyValues, setSelected, selected } from "./utils.js";
+import { handleKeyDown, initParams, def, initKeys, initKeyValues, setSelected } from "./utils.js";
 
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
@@ -38,9 +38,7 @@ function select(map) {
 
     image.src = "./res/maps/" + map + ".png";
 
-    image.onload = () => {
-        context.drawImage(image, 0, 0, iw, ih);
-    }  
+    image.onload = draw;
 }
 
 function draw() {
