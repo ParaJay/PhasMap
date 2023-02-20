@@ -10,7 +10,7 @@ Twice as likely to turn off Fuse Box
 
 Does not accelerate while maintaining line of sight
 
-When visible during a hunt will emit freezing breath if room temperature is lower than or equal to 3°C
+When visible during a hunt will emit freezing breath if room temperature is lower than or equal to 3°C or if the breaker is off
 
 Movement Speed
 15°C: 1.4 m/s

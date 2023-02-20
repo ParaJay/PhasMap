@@ -8,8 +8,8 @@ If at least 1 player is in the same room as a Shade it will be unable to perform
 
 Less likely to perform events at high sanity, at 100% sanity the event will success 0% of the time. The success rate increased by 2% per percentage of average sanity lost. At 50% average sanity the event will always succeed
 
-Prefers hissing events over manifestation
+Prefers ghost mist events over manifestation (67%)
 
-If it manifests for a Ghost Event, it has a higher chance of appearing as shadow
+If it manifests for a Ghost Event, it has a higher chance of appearing as shadow (67%)
 
 If the ghost is manifested by use of a Summoning Circle or Music Box it has a chance of appearing as a transparent black shadow rather than full form
