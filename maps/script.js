@@ -5,7 +5,6 @@ const image = document.createElement("img");
 var scale, x, y, clickX, clickY, clicking, xoffset, yoffset;
 
 canvas.width = screen.availWidth * 0.8;
-canvas.height = screen.availHeight * 0.9;
 
 const iw = canvas.width;
 const ih = canvas.height;
@@ -22,7 +21,9 @@ const maps = [
 const keys = {};
 
 function init() {
-    canvas.width = screen.availWidth * 0.8;
+    if(canvas.height > (canvas.width * 2)) {
+        canvas.height = canvas.height;
+    }
 
     let def = "grafton";
 
@@ -33,9 +34,7 @@ function init() {
 
         let map = params.get("map");
 
-        if(map) {
-            def = map;
-        }
+        if(map) def = map;
     }
 
     maps.forEach(map => {
@@ -115,23 +114,11 @@ function handleKey(key) {
 
     if(maps.length == 0) return;
 
-    if(maps.length == 1) {
-        select(maps[0]);
-        return;
-    }
-
     let index = maps.indexOf(selected) + 1;
 
     if(index == maps.length) index = 0;
     
     select(maps[index]);
-}
-
-function n(a, m) {
-    if(a < -m) a = -m;
-    if(a > m) a = m;
-
-    return a;
 }
 
 window.onload = init;
@@ -140,29 +127,21 @@ document.getElementById("next").onclick = () => set(1);
 document.getElementById("previous").onclick = () => set(-1);
 
 window.onkeydown = (e) => {
-    let am = 0;
+    let am = kval[e.key];
 
-    if(kval[e.key]) {
-        am = kval[e.key];
+    if(am) {
+        set(am);
     } else {
         handleKey(e.key);
-        return;
     }
-
-    set(am);
 }
 
 window.onmousemove = (e) => {
     if(clicking) {
         e.preventDefault();
 
-        let am = 32;
-
         let x = e.x - clickX;
         let y = e.y - clickY;
-
-        x = n(x, am);
-        y = n(y, am);
 
         xoffset += x;
         yoffset += y;
@@ -176,9 +155,8 @@ window.onmousemove = (e) => {
 
 window.onwheel = (e) => {
     let am = e.deltaY < 0 ? 1.1 : 0.9;
+    
     scale *= am;
-
-    console.log(e.deltaY)
 
     draw();
 }
