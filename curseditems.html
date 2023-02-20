@@ -2,8 +2,8 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Maps</title>
-        <link rel="stylesheet" href="./styles/main.css">
+		<title>Ghosts</title>
+		<link rel="stylesheet" href="./styles/main.css">
 	</head>
 
 	<body>
@@ -35,18 +35,20 @@
             <box><a href="./curseditems.html">Cursed Items</a></box>
         </nav>
 
-        <div class="img-wrapper">
-            <canvas id="canvas" width="800" height="700"></canvas>
+        <div class="wrapper">
+            <div class="info-wrapper">
+                <p id="ghostName"></p>
+                <textarea id="text" cols="96" rows="32" readonly="true"></textarea>
+            </div>
+
+            <div class="btns-left"><br><br><br><br></div>
+            <div class="btns-right"><br><br><br><br></div>
         </div>
-        
-        <script src="./scripts/maps.js" type="module"></script>
+
+        <script src="./scripts/cursed-items.js" type="module"></script>
 	</body>
 
 	<footer>
-        <div class="wrapper">
-            <button id="previous">Previous</button>
-            <button id="next">Next</button>
-            <p>all map images from: <a href="https://imgur.com/a/iEI0tJo">here</a></p>
-        </div>
+		
 	</footer>
 </html>
