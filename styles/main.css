@@ -109,36 +109,8 @@ button, box {
 }
 
 #canvas {
-    width: 60vw;
+    width: 80vh;
     max-width: 100%;
-    height: 80vh;
-    margin: auto;
-}
-
-@media screen and(orientation:landscape) {
-    .img-wrapper {
-        display: grid;
-        height: 100%;
-    }
-    
-    #canvas {
-        width: 60vw;
-        max-width: 100%;
-        height: 80vh;
-        margin: auto;
-    }
-}
-
-@media screen and(orientation:portrait) {
-    .img-wrapper {
-        display: grid;
-        width: 100%;
-    }
-    
-    #canvas {
-        height: 60vw;
-        max-height: 100%;
-        display: 80vh;
-        margin: auto;
-    }
+    margin-left: auto;
+    margin-right: auto;
 }
