@@ -17,7 +17,7 @@ export function setSelected(sel) {
     selected = sel;
 }
 
-export async function initInfoState(array, dir, param, def) {
+export async function initInfoState(array, dir, param, def=array[0]) {
     initKeyValues(2);
 
     let info = {};
