@@ -1,4 +1,4 @@
-import { handleKeyDown, initParams, def, initKeys, initKeyValues, setSelected } from "./utils.js";
+import { handleKeyDown, initParams, def, initKeys, initKeyValues, setSelected, getNext } from "./utils.js";
 
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
@@ -50,7 +50,7 @@ function draw() {
 window.onload = init;
 
 function change(am) {
-    let s = set(maps, am, true);
+    let s = getNext(maps, am, true);
 
     if(s) select(s);
 }
